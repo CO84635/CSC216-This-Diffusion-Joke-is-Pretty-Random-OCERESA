@@ -11,12 +11,26 @@ int main() {
     int M = 10;
 
     vector<int> data;
+    vector<int> N_values;
 
     srand(time(NULL));
 
     for (int i = 0; i < M; i++) {
-        
-        N = (i < (int)ceil(M / 2)) ? 10 : 100;
+
+        if (i < M / 5) {
+            N = 10;
+        } else if (i < 2 * M / 5) {
+            N = 100;
+        } else if (i < 3 * M / 5) {
+            N = 1000;
+        } else if (i < 4 * M / 5) {
+            N = 10000;
+        } else {
+            N = 100000;
+        }
+
+        N_values.push_back(N);
+
         int currentPosition = 0;
 
         for (int j = 0; j < N; j++) {
@@ -28,7 +42,7 @@ int main() {
     }
 
     for (int i = 0; i < data.size(); i++) {
-        cout << "T" << i + 1 << ": N" << ((i < (int)ceil(M / 2)) ? 10 : 100) << ": " << data[i] << endl;
+        cout << "T" << i + 1 << ": N" << N_values[i] << ": " << data[i] << endl;
     }
 
     return 0;
