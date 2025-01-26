@@ -6,15 +6,16 @@
 using namespace std;
 
 int main() {
-    int N = 50;
-    int M = 50;
+    int N;
+    int M = 10;
 
     vector<int> data;
 
     srand(time(NULL));
 
     for (int i = 0; i < M; i++) {
-
+        
+        N = (i < 5) ? 10 : 100;
         int currentPosition = 0;
 
         for (int j = 0; j < N; j++) {
@@ -26,7 +27,7 @@ int main() {
     }
 
     for (int i = 0; i < data.size(); i++) {
-        cout << "T" << i + 1 << ": " << data[i] << "\t";
+        cout << "T" << i + 1 << ": N" << ((i < 5) ? 10 : 100) << ": " << data[i] << endl;
     }
 
     return 0;
